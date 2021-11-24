@@ -1,0 +1,24 @@
+<h1>Add Course</h1>
+
+<%= form_with(model: @course) do |f| %>
+<div class="field">
+  <%= f.label :Name %>
+  <%= f.text_field :Name %>
+</div>
+<div class="field">
+  <%= f.label :Price %>
+  <%= f.number_field :Price %>
+</div>
+<div class="field">
+  <%= f.label :Intro %>
+  <%= f.text_area :Intro %>
+</div>
+<div class="field">
+  <%= f.label :Hour %>
+  <%= f.number_field :Hour %>
+</div>
+<div class="action">
+  <%= f.submit %>
+</div>
+
+<% end %>
