@@ -11,6 +11,7 @@
   </head>
 
   <body>
+    <%= render "share/flash" if flash[:notice] %>
     <%= yield %>
   </body>
 </html>
