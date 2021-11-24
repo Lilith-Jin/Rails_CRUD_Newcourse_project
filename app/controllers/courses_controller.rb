@@ -20,19 +20,26 @@ class CoursesController < ApplicationController
     end
   end
 
-  def clean_params
-    params.require(:course).permit(:name, :price, :intro, :hour)
-    
-  end
-
   def edit
+    @course = Course.find_by(id: params[:id])
   end
 
   def update
+    @course = Course.find_by(id: params[:id])
+
+    if @course.update(clean_params)
+      redirect_to courses_path, notice: "course edited"
+    else
+      render :edit
+    end
+
   end
 
   def delete
   end
 
-
+  private
+  def clean_params
+    params.require(:course).permit(:name, :price, :intro, :hour)
+  end
 end
