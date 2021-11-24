@@ -8,12 +8,13 @@ class CoursesController < ApplicationController
   end
 
   def show
+    @course = Course.find_by(id: params[:id])
   end
 
   def create
     @course = Course.new(clean_params)
 
-    if @course.save
+    if @course.save 
       redirect_to courses_path, notice: "course created"
     else
       render :new
@@ -35,7 +36,10 @@ class CoursesController < ApplicationController
 
   end
 
-  def delete
+  def destroy
+    @course = Course.find_by(id: params[:id])
+    @course.destroy
+    redirect_to courses_path, notice: "course deleted"
   end
 
   private

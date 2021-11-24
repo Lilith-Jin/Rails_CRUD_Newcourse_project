@@ -14,9 +14,9 @@ ActiveRecord::Schema.define(version: 2021_11_23_234146) do
 
   create_table "courses", force: :cascade do |t|
     t.string "name"
-    t.string "price"
-    t.string "intro"
-    t.string "hour"
+    t.integer "price"
+    t.text "intro"
+    t.decimal "hour"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
