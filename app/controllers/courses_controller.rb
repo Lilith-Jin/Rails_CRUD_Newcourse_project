@@ -12,9 +12,9 @@ class CoursesController < ApplicationController
   end
 
   def create
-    @course = Course.new(clean_params)
+    # @course = Course.new(clean_params)
 
-    if @course.save 
+    if Course.new(clean_params).save 
       redirect_to courses_path, notice: "course created"
     else
       render :new
@@ -29,6 +29,7 @@ class CoursesController < ApplicationController
     @course = Course.find_by(id: params[:id])
 
     if @course.update(clean_params)
+      # 對要存進資料庫前的course過濾
       redirect_to courses_path, notice: "course edited"
     else
       render :edit
@@ -46,4 +47,5 @@ class CoursesController < ApplicationController
   def clean_params
     params.require(:course).permit(:name, :price, :intro, :hour)
   end
+  
 end
