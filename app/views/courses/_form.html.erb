@@ -1,3 +1,11 @@
+<% if course.errors.any? %>
+<ul>
+  <% course.errors.full_messages.each do |msg|%>
+    <li><%= msg%></li>
+  <%end%>
+</ul>
+<%end%>
+
 <%= form_with(model: course) do |f| %>
   <div class="field">
     <%= f.label :Name %>

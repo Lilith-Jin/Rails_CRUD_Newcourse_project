@@ -1,0 +1,12 @@
+.field_with_errors{
+  display: inline;
+  
+  input[type="text"]{
+    border: solid 2px red;
+  }
+}
+
+//下面這段放到.field_with_errors內
+// .field_with_errors input[type="text"]{
+//   border: solid 2px red;
+// }
